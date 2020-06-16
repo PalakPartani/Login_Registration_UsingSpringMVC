@@ -69,6 +69,5 @@ public class RegistrationController {
             }
             System.out.println("terminate");
         }
-
     }
 }

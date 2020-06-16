@@ -1,24 +1,25 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Palak
-  Date: 03-06-2020
-  Time: 00:41
-  To change this template use File | Settings | File Templates.
---%>
+<%--  Created by IntelliJ IDEA.--%>
+<%--  User: Palak--%>
+<%--  Date: 03-06-2020--%>
+<%--  Time: 00:41--%>
+<%--  To change this template use File | Settings | File Templates.--%>
+<%--&ndash;%&gt;--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-  <%--      <%
+<%--
+<%
     Object customers = session.getAttribute("customers");
     if (customers != null) {
-        System.out.println("<script type=\"text/javascript\">");
+        System.out.println("Login successfull");
+        out.println ("<script type=\"text/javascript\">");
         out.println("setTimeout(function(){ window.alert('Login Successfull!!');window.location.href='index.jsp'}, 3000);");
         out.println("</script>");
-    }
-    Object Error = session.getAttribute("Error");
-    if (Error != null) {
-        out.println("<script type=\"text/javascript\">");
-        out.println("setTimeout(function(){window.alert('Username or Password incorrect!!')}, 3000);");
-        out.println("</script>");
-    }
+    }--%>
+<%--//    Object Error = session.getAttribute("Error");
+//    if (Error != null) {
+//        out.println("<script type=\"text/javascript\">");
+//        out.println("setTimeout(function(){window.alert('Username or Password incorrect!!')}, 3000);");
+//        out.println("</script>");
+//    }
 %>--%>
 <html>
 <head>
@@ -26,6 +27,16 @@
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
 </head>
 <body>
+
+<%--&lt;%&ndash;<%--%>
+<%--        Object customers = session.getAttribute("customers");--%>
+<%--        if (customers != null) {--%>
+<%--            System.out.println("Login successfull");--%>
+<%--            out.println ("<script type=\"text/javascript\">");--%>
+<%--            out.println("setTimeout(function(){ window.alert('Login Successfull!!');window.location.href='index.jsp'}, 3000);");--%>
+<%--            out.println("</script>");--%>
+<%--        }--%>
+<%--        %>&ndash;%&gt;--%>
 <div class="login-box">
     <form action="loginProcess" method="get">
         <div style="font-family: Arial;font-size:25px;font-weight: 700;text-align: center;padding: 10px">

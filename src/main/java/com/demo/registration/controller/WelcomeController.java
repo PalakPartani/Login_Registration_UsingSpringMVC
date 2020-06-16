@@ -31,4 +31,10 @@ public class WelcomeController {
         System.out.println("inside logout");
         return "Logout";
     }
+
+    @RequestMapping(path = "/index", method = RequestMethod.GET)
+    public String index() {
+        System.out.println("inside index");
+        return "index";
+    }
 }

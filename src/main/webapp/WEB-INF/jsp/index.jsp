@@ -1,6 +1,4 @@
-<%
-    Object customers = session.getAttribute("customers");
-%>
+
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css">
@@ -16,16 +14,24 @@
 </head>
 <body>
 <div class="card">
+    <form action="logoutProcess" method="get">
     <div style="width:200px;margin:0px auto">
         <img src="https://www.pngmart.com/files/10/Business-User-Account-PNG-Photos.png" width="100%">
     </div>
     <div style="padding:10px 5px">
-        <%=customers%>
+        ${name}<br><br>
+        ${address}<br><br>
+        ${email}<br><br>
         <div style="padding:20px;text-align: center">
-            <a style="padding:10px;text-decoration: none;color:white;background-color: blueviolet;border-radius: 10px;" href="Logout">Logout</a>
+            <input type="submit" name="submit" value="Logout">
+
+<%--
+            <a style="padding:10px;text-decoration: none;color:white;background-color: blueviolet;border-radius: 10px;" href="login">Logout</a>
+--%>
         </div>
 
     </div>
 </div>
+</form>
 </body>
 </html>

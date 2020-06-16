@@ -28,24 +28,24 @@ public class LoginController {
     @RequestMapping(path = "/loginProcess", method = RequestMethod.GET)
     public void showLogin(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         System.out.println("hi");
-    /*    Customer custSession=req.getSession().setAttribute("custSession",customer);*/
-
         ICustomerOperation cd = new CustomerOperationImplementation();
 
         String userName = req.getParameter("name");
         String password = req.getParameter("password");
 
-        HttpSession session = req.getSession();
         String submit = req.getParameter("submit");
 
         if (submit.equals("Login")) {
             Customer customer = cd.getCustomer(userName, password);
             System.out.println(customer.getUserName());
             if (customer.getUserName() != null) {
-                req.getRequestDispatcher("/logout").forward(req,res);
+                HttpSession session = req.getSession(true);
+                session.setAttribute("name",customer.getUserName());
+                session.setAttribute("address",customer.getAddress());
+                session.setAttribute("email",customer.getEmailId());
+                req.getRequestDispatcher("/index").forward(req,res);
 
             } else {
-                session.setAttribute("Error","Error");
                 req.getRequestDispatcher("/login").include(req, res);
                 System.out.println("dispatch");
             }
