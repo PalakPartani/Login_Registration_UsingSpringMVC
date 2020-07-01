@@ -3,6 +3,7 @@ package com.demo.registration.controller;
 import com.demo.registration.repository.CustomerOperationImplementation;
 import com.demo.registration.interfaces.ICustomerOperation;
 import com.demo.registration.model.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,9 +18,10 @@ import java.io.IOException;
 
 @Controller
 public class LoginController {
+    @Autowired
+    LoginService service;
 
     /**
-     *
      * @param req get input details
      * @param res gives response
      * @throws ServletException
@@ -27,28 +29,13 @@ public class LoginController {
      */
     @RequestMapping(path = "/loginProcess", method = RequestMethod.GET)
     public void showLogin(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        System.out.println("hi");
-        ICustomerOperation cd = new CustomerOperationImplementation();
 
-        String userName = req.getParameter("name");
-        String password = req.getParameter("password");
-
-        String submit = req.getParameter("submit");
-
-        if (submit.equals("Login")) {
-            Customer customer = cd.getCustomer(userName, password);
-            System.out.println(customer.getUserName());
-            if (customer.getUserName() != null) {
-                HttpSession session = req.getSession(true);
-                session.setAttribute("name",customer.getUserName());
-                session.setAttribute("address",customer.getAddress());
-                session.setAttribute("email",customer.getEmailId());
-                req.getRequestDispatcher("/index").forward(req,res);
-
-            } else {
-                req.getRequestDispatcher("/login").include(req, res);
-                System.out.println("dispatch");
-            }
+        if (req.getParameter("submit").equals("Login")) {
+            Customer customer = service.setSession(req);
+            req.getRequestDispatcher("/index").forward(req, res);
+        } else {
+            req.getRequestDispatcher("/login").include(req, res);
+            System.out.println("dispatch");
         }
     }
 }
