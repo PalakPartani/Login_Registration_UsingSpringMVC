@@ -3,6 +3,7 @@ package com.demo.registration.controller;
 import com.demo.registration.repository.CustomerOperationImplementation;
 import com.demo.registration.interfaces.ICustomerOperation;
 import com.demo.registration.model.Customer;
+import com.demo.registration.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
